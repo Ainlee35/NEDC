@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Nedc.css">
+
+  <title>Nedc Official</title>
+</head>
+<body>
+  <script>
+    fetch("data.json")
+      .then(res => res.json())
+      .then(siteData => {
+        // Nav
+        const nav = document.createElement("nav");
+        const logo = document.createElement("div");
+        logo.className = "logo";
+        logo.textContent = siteData.logo;
+        nav.appendChild(logo);
+
+        const navList = document.createElement("ul");
+        siteData.navLinks.forEach(link => {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="#${link.id}">${link.name}</a>`;
+          navList.appendChild(li);
+        });
+        nav.appendChild(navList);
+        document.body.appendChild(nav);
+
+        // Header
+        const header = document.createElement("header");
+        header.id = "home";
+        header.innerHTML = `
+          <div class="parallelogram">
+            <img src="${siteData.header.image}" alt="Header Image">
+          </div>
+          <h1>${siteData.header.title}</h1>
+        `;
+        document.body.appendChild(header);
+
+        // About
+        const about = document.createElement("section");
+        about.id = "about";
+        about.innerHTML = `
+          <h2>${siteData.about.title}</h2>
+          <p>${siteData.about.description}</p>
+          <button onclick="alert('Hello! You clicked the button.')">${siteData.about.buttonText}</button>
+        `;
+        document.body.appendChild(about);
+
+        // Leadership
+        const leadership = document.createElement("section");
+        leadership.id = "leadership";
+        leadership.innerHTML = `<h2>Our Leadership</h2>`;
+        const leadershipContainer = document.createElement("div");
+        leadershipContainer.className = "leadership";
+
+        siteData.leadership.forEach(person => {
+          const card = document.createElement("div");
+          card.className = "leader";
+          card.innerHTML = `
+            <img src="${person.img}" alt="${person.role}">
+            <h3>${person.name}</h3>
+            <p>${person.role}</p>
+          `;
+          leadershipContainer.appendChild(card);
+        });
+
+        leadership.appendChild(leadershipContainer);
+        document.body.appendChild(leadership);
+
+        // Footer
+        const footer = document.createElement("footer");
+        footer.id = "contact";
+
+        const contactDiv = document.createElement("div");
+        contactDiv.className = "footer-section";
+        contactDiv.innerHTML = `
+          <h3>Contact</h3>
+          <p>Email: ${siteData.footer.contact.email}</p>
+          <p>Phone: ${siteData.footer.contact.phone}</p>
+        `;
+
+        const linksDiv = document.createElement("div");
+        linksDiv.className = "footer-section";
+        linksDiv.innerHTML = `<h3>Quick Links</h3>`;
+        const ul = document.createElement("ul");
+        siteData.footer.links.forEach(link => {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="#${link.toLowerCase()}">${link}</a>`;
+          ul.appendChild(li);
+        });
+        linksDiv.appendChild(ul);
+
+        footer.appendChild(contactDiv);
+        footer.appendChild(linksDiv);
+
+        document.body.appendChild(footer);
+      })
+      .catch(err => console.error("Error loading JSON:", err));
+  </script>
+</body>
+</html>

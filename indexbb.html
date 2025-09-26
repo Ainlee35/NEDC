@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bongo Fursa — Tanzania Opportunity Platform</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#ffb703;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue";background:linear-gradient(180deg,#041024 0%,#07132a 100%);color:#e6eef6;line-height:1.5;overflow-x:hidden}
+    header{padding:28px 24px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(6px);position:sticky;top:0;z-index:100;background:rgba(15,23,36,0.9);animation:fadeDown 1s ease}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff7b54);display:flex;align-items:center;justify-content:center;font-weight:700;color:#061626;animation:spinIn 1.2s ease}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;position:relative}
+    nav a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:width .3s}
+    nav a:hover::after{width:100%}
+    .hero{padding:60px 24px;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;animation:fadeIn 1.4s ease}
+    .hero h1{font-size:clamp(28px,4vw,44px);margin:0 0 12px;animation:slideUp .8s ease}
+    .hero p{color:var(--muted);margin:0 0 18px;animation:slideUp 1.2s ease}
+    .cta{display:flex;gap:12px;animation:fadeInUp 1.4s ease}
+    .btn{background:var(--accent);color:#061626;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:600;transition:transform .3s}
+    .btn:hover{transform:scale(1.05)}
+    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 20px rgba(2,6,23,0.6);transition:transform .3s, box-shadow .3s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 10px 24px rgba(2,6,23,0.8)}
+    .section{padding:30px 24px;animation:fadeIn 1.6s ease}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    footer{padding:24px;text-align:center;color:var(--muted);font-size:14px;animation:fadeUp 2s ease}
+    .pdf-embed{width:100%;height:320px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);overflow:hidden;animation:zoomIn 1.6s ease}
+    .socials{display:flex;gap:10px}
+    .chip{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px;transition:background .3s, transform .3s}
+    .chip:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px)}
+    /* Animations */
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes zoomIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+    @keyframes spinIn{0%{transform:scale(0) rotate(-180deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+    /* Responsive */
+    @media(max-width:900px){.hero{grid-template-columns:1fr;}.logo{width:48px;height:48px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">BF</div>
+      <div>
+        <div style="font-weight:700">Bongo Fursa</div>
+        <div style="font-size:13px;color:var(--muted)">Tanzania Opportunity Platform</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#podcast">Podcasts</a>
+      <a href="#media">Media</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Bongo Fursa — Tanzania Opportunity Platform</h1>
+        <p>Showcasing opportunities, stories, and careers across Tanzania. Built from the Bongo Fursa document. Use this single-file site to present podcasts, videos, and partnership info to stakeholders.</p>
+        <div class="cta">
+          <a class="btn" href="#media">View Media</a>
+          <a class="chip" href="#podcast">See Podcasts</a>
+        </div>
+
+        <div style="margin-top:22px;" class="card">
+          <strong>Key timelines</strong>
+          <ul style="color:var(--muted);margin:10px 0 0;padding-left:18px">
+            <li>Phase 1 — October: Mr Fursa videos & office challenges</li>
+            <li>Phase 2 — November: University Q&A & influencer podcast</li>
+            <li>Phase 3 — January: Bongo Fursa podcast launch</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Document Preview</h3>
+        <div class="pdf-embed">
+          <embed src="bf.pdf" type="application/pdf" width="100%" height="100%" />
+        </div>
+        <p style="color:var(--muted);font-size:13px;margin-top:12px">The site is built using the uploaded Bongo Fursa document. You can download or replace the PDF file to update this preview.</p>
+      </aside>
+    </section>
+
+    <section id="podcast" class="section">
+      <h2>Podcasts & Episodes</h2>
+      <div class="grid">
+        <div class="card" style="animation:fadeInUp 1.2s ease">
+          <h4>University Q&A</h4>
+          <p style="color:var(--muted)">Short episodes with university students and career advisors. Planned for November.</p>
+          <div style="margin-top:10px"><a class="chip" href="#">Play sample</a></div>
+        </div>
+        <div class="card" style="animation:fadeInUp 1.4s ease">
+          <h4>Bongo Fursa Podcast</h4>
+          <p style="color:var(--muted)">Flagship series featuring entrepreneurs and opportunity spotlights. Target launch: January.</p>
+          <div style="margin-top:10px"><a class="chip" href="#">See episodes</a></div>
+        </div>
+        <div class="card" style="animation:fadeInUp 1.6s ease">
+          <h4>Mr Fursa Series</h4>
+          <p style="color:var(--muted)">Short-form video interviews and sponsored content for brand partners.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="media" class="section">
+      <h2>Video & Social Media</h2>
+      <div class="grid">
+        <div class="card" style="animation:fadeInUp 1.2s ease">
+          <h4>YouTube</h4>
+          <p style="color:var(--muted)">Full-length episodes and behind-the-scenes uploads. Use Instagram to drive subscriptions.</p>
+        </div>
+        <div class="card" style="animation:fadeInUp 1.4s ease">
+          <h4>Instagram</h4>
+          <p style="color:var(--muted)">Reels, sponsored Mr Fursa content, and staff challenge highlights.</p>
+        </div>
+        <div class="card" style="animation:fadeInUp 1.6s ease">
+          <h4>TikTok</h4>
+          <p style="color:var(--muted)">Short, viral clips: office challenges and motivational scripts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px">
+        <div class="card" style="animation:fadeInUp 1.2s ease">
+          <h3>Contact & Partnerships</h3>
+          <p style="color:var(--muted)">Get in touch to sponsor episodes, collaborate with university programs, or join as a guest.</p>
+          <form onsubmit="event.preventDefault();alert('Demo form — implement backend to submit.');" style="margin-top:12px;display:grid;gap:8px">
+            <input placeholder="Name" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
+            <input placeholder="Email" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
+            <textarea placeholder="Message" rows="4" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+            <button class="btn" type="submit">Send</button>
+          </form>
+        </div>
+
+        <div class="card" style="animation:fadeInUp 1.4s ease">
+          <h4>Quick links</h4>
+          <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
+            <a class="chip" href="#">Instagram</a>
+            <a class="chip" href="#">YouTube</a>
+            <a class="chip" href="#">TikTok</a>
+            <a class="chip" href="#">Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Built from the uploaded Bongo Fursa document. Preview embedded. — © Bongo Fursa
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});}));
+    (async function(){
+      try{
+        const resp = await fetch('bf.pdf', {method:'HEAD'});
+        if(!resp.ok) console.warn('bf.pdf not found. Place the PDF file named "bf.pdf" next to this HTML file to enable preview.');
+      }catch(e){console.warn('Unable to fetch bf.pdf. If opening locally, place bf.pdf in same folder as this HTML file.');}
+    })();
+  </script>
+</body>
+</html>
